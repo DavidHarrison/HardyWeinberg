@@ -2,3 +2,5 @@ elm-stuff/
 elm.js
 elm_dependencies/
 sim.html
+# swap files
+*.swp
