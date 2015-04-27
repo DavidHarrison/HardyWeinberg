@@ -19,7 +19,7 @@ main = let time : Signal Time
            actions : Signal Population.Action
            actions = Signal.merge actionsMB.signal ((always Population.Live) <~ time)
            fitness : Evolve.Fitness
-           fitness = {survival=0.8, reproductive=(Normal.make 4.0 2.0)}
+           fitness = {survival=0.8, reproductive=(Normal.make 2.0 2.0)}
            fitnessModel : Evolve.GenotypeModel Evolve.Fitness
            fitnessModel = { homdom=fitness, hetero=fitness, homrec=fitness }
            size = 900
@@ -33,9 +33,11 @@ main = let time : Signal Time
 
 genFold : (a -> b -> Generator b) -> Generator b -> Signal a -> Signal b
 genFold f init sig =
-    let iteratee : (a -> b -> Generator b) -> (Time, a) -> (b, Seed) -> (b, Seed)
-        iteratee f (_, a) (b, seed) = generate (f a b) seed
-        init' = generate init (initialSeed 10)
+    let iteratee : (a -> b -> Generator b) -> (Time, a) -> (b, Result Seed Seed) -> (b, Result Seed Seed)
+        iteratee f (t, a) (b, seedRes) = case seedRes of
+            Err seed -> TU.mapSnd (always (Ok <| timeSeed t)) <| generate (f a b) seed
+            Ok  seed -> TU.mapSnd Ok <| generate (f a b) seed
+        init' = TU.mapSnd Err <| generate init (initialSeed 0)
     in fst <~ Signal.foldp (iteratee f) init' (timestamp sig)
     -- Unfortunately, due to unexpected merge behavior on the first element of
     -- the signal, this implementation results in a runtime error
