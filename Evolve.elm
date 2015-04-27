@@ -6,6 +6,7 @@ module Evolve
     , AlleleModel
     , GenotypeModel
     , Dist
+    , size
     , init
     , live
     , alleleDist
@@ -40,6 +41,9 @@ homrec = (recessive, recessive)
 -- a generation of a population is an array of individuals' genotypes
 type alias Generation = List Genotype
 
+size : Generation -> Int
+size = List.length
+
 -- survival : chance of survival [0,1]
 -- reproductive : number of viable offspring (>= 0)
 type alias Fitness = { survival : Float, reproductive : NormalDist }
@@ -73,15 +77,23 @@ init genSize dist =
         genotypeGen = Random.map2 (,) alleleGen alleleGen
     in Random.list genSize genotypeGen
 
-live : GenotypeModel Fitness -> Generation -> Generator Generation
-live fit gen =
+live : Int -> GenotypeModel Fitness -> Generation -> Generator Generation
+live capacity fit gen =
     let surFit : GenotypeModel Float
-        surFit = genotypeModelMap .survival fit
+        surFit = genotypeModelMap (chances (size gen) capacity << .survival) fit
         repFit : GenotypeModel NormalDist
         repFit = genotypeModelMap .reproductive fit
         gen' : Generator Generation
         gen' = survive surFit gen
     in Random.flatMap (reproduce repFit) gen'
+
+-- the marginal chance of survival is inversely proportional to
+-- population size as a percent of capacity, making population growth
+-- logistic
+chances : Int -> Int -> Float -> Float
+chances size cap baseline =
+    let modifier = 1 - (toFloat size / toFloat (2 * cap))
+    in modifier * baseline
 
 -- TODO: do we need to shuffle?
 survive : GenotypeModel Float -> Generation -> Generator Generation
@@ -113,8 +125,8 @@ mate fitness f m =
 
 alleleDist : GenotypeModel Dist -> AlleleModel Dist
 alleleDist {homdom, hetero, homrec} =
-    let p = 2 * homdom + hetero
-        q = 2 * homrec + hetero
+    let p = (2 * homdom + hetero) / 2
+        q = (2 * homrec + hetero) / 2
     in { dom=p, rec=q }
 
 genotypeDist : Generation -> GenotypeModel Dist

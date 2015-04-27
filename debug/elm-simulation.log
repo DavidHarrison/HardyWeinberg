@@ -1,0 +1,225 @@
+Simulation.elm:14676 Uncaught TypeError: Cannot read property 'ctor' of undefined
+(anonymous function) @ Simulation.elm:14676
+fromJust @ Simulation.elm:14680
+refreshValue @ Simulation.elm:8630
+mapMany @ Simulation.elm:8590
+map @ Simulation.elm:8632
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:14705
+(anonymous function) @ Simulation.elm:14708
+A3 @ Simulation.elm:8234
+(anonymous function) @ Simulation.elm:14893
+(anonymous function) @ Simulation.elm:14894
+A3 @ Simulation.elm:8234
+(anonymous function) @ Simulation.elm:14918
+Elm.Simulation.make @ Simulation.elm:14924
+init @ Simulation.elm:7769
+Elm.fullscreen @ Simulation.elm:7652
+(anonymous function) @ Simulation.elm:15611
+
+Simulation.elm:12814 Uncaught RangeError: Maximum call stack size exceeded(anonymous function) @ Simulation.elm:12814
+(anonymous function) @ Simulation.elm:12817
+next @ Simulation.elm:12820
+(anonymous function) @ Simulation.elm:12944
+(anonymous function) @ Simulation.elm:12951
+(anonymous function) @ Simulation.elm:12952
+A3 @ Simulation.elm:8234
+(anonymous function) @ Simulation.elm:12949
+(anonymous function) @ Simulation.elm:12951
+(anonymous function) @ Simulation.elm:12952
+A3 @ Simulation.elm:8234
+(anonymous function) @ Simulation.elm:12964
+(anonymous function) @ Simulation.elm:12974
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:12981
+(anonymous function) @ Simulation.elm:12998
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13318
+(anonymous function) @ Simulation.elm:13326
+(anonymous function) @ Simulation.elm:12902
+(anonymous function) @ Simulation.elm:12913
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:12408
+$Random.customGenerator.iteratee @ Simulation.elm:12448
+until @ Simulation.elm:12397
+A2 @ Simulation.elm:8229
+(anonymous function) @ Simulation.elm:12450
+(anonymous function) @ Simulation.elm:12498
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13318
+(anonymous function) @ Simulation.elm:13326
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13523
+(anonymous function) @ Simulation.elm:13532
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13523
+(anonymous function) @ Simulation.elm:13532
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13681
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+(anonymous function) @ Simulation.elm:12766
+A2 @ Simulation.elm:8228
+(anonymous function) @ Simulation.elm:13686
+(anonymous function) @ Simulation.elm:13695
+(anonymous function) @ Simulation.elm:12763
+
+4081Simulation.elm:7693 Uncaught Error: The notify function has been called synchronously!
+This can lead to frames being dropped.
+Definitely report this to <https://github.com/elm-lang/Elm/issues>
+notify @ Simulation.elm:7693
+tellTime @ Simulation.elm:9878

@@ -1,10 +1,9 @@
 module Population (Model, init, Action(..), update, view) where
 
 import Color exposing (blue, green, red)
-import Graphics.Element exposing (Element, flow, down)
-import Markdown
+import Graphics.Element exposing (Element, flow, down, show, right)
 import Random exposing (Generator, customGenerator, generate, initialSeed)
-import Signal exposing (Address)
+import Signal exposing (Address, message)
 import Time exposing (Time, inMilliseconds)
 
 import Histogram
@@ -13,25 +12,28 @@ import Evolve exposing ( Generation
                        , GenotypeModel
                        , Dist
                        , Fitness
+                       , size
                        )
+import Slider exposing (defaultSlider, slider)
 
 -- Types ----------------------------------------------------------------------
-type alias Model = { population  : Generation
-                   , size        : Int
-                   , fitness     : GenotypeModel Fitness
+type alias Model = { population : Generation
+                   , fitness    : GenotypeModel Fitness
+                   , capacity   : Int
                    }
 
 type Action = Size Int
+            | Capacity Int
             | AlleleDist (AlleleModel Dist)
             | Fitness (GenotypeModel Fitness)
             | Live
 
-init : Int -> AlleleModel Dist -> GenotypeModel Fitness -> Generator Model
-init size dist fitness = customGenerator <| \seed ->
+init : Int -> Int -> AlleleModel Dist -> GenotypeModel Fitness -> Generator Model
+init size cap dist fitness = customGenerator <| \seed ->
     let (population,seed') = generate (Evolve.init size dist) seed
         model = { population=population
-                , size=size
                 , fitness=fitness
+                , capacity=cap
                 }
     in (model, seed')
 
@@ -41,7 +43,7 @@ view addr model =
         alDist = Evolve.alleleDist genoDist
     in flow down
        [ plotGenotypes (300,300) genoDist
-       , label alDist genoDist
+       , label addr (size model.population) model.capacity alDist genoDist
        ]
 
 update : Action -> Model -> Generator Model
@@ -50,10 +52,11 @@ update action model = customGenerator <| \seed ->
         Size size' ->
             let populationGen = Evolve.resize size' model.population
                 (population', seed') = generate populationGen seed
-                model' = { model | population <- population', size <- size' }
+                model' = { model | population <- population' }
             in (model', seed')
+        Capacity cap -> ({ model | capacity <- cap }, seed)
         AlleleDist alDist ->
-            let populationGen = Evolve.init model.size alDist
+            let populationGen = Evolve.init (size model.population) alDist
                 (population', seed') = generate populationGen seed
                 model' = { model | population <- population' }
             in (model', seed')
@@ -61,7 +64,7 @@ update action model = customGenerator <| \seed ->
             let model' = { model | fitness <- fitness' }
             in (model', seed)
         Live ->
-            let populationGen = Evolve.live model.fitness model.population
+            let populationGen = Evolve.live model.capacity model.fitness model.population
                 (population', seed') = generate populationGen seed
                 model' = { model | population <- population' }
             in (model', seed')
@@ -73,11 +76,22 @@ plotGenotypes dims dist = Histogram.plot dims
         , (dist.homrec, red)
         ]
 
-label : AlleleModel Dist -> GenotypeModel Dist -> Element
-label alDist genDist = flow down
-        [ Markdown.toElement <| "$p$: " ++ (toString <| alDist.dom)
-        , Markdown.toElement <| "$q$: " ++ (toString <| alDist.rec)
-        , Markdown.toElement <| "$p^2$: " ++ (toString <| genDist.homdom)
-        , Markdown.toElement <| "$2pq$: " ++ (toString <| genDist.hetero)
-        , Markdown.toElement <| "$q^2$: " ++ (toString <| genDist.homrec)
+label : Address Action -> Int -> Int -> AlleleModel Dist -> GenotypeModel Dist -> Element
+label addr size capacity alDist genDist = flow down
+        [ flow right
+                [ show <| "size: " ++ (toString size)
+                , slider (\n -> message addr (Size <| floor n)) { defaultSlider | max <- toFloat capacity, value <- toFloat size }
+                ]
+        , flow right
+                [ show <| "capacity: " ++ (toString capacity)
+                , slider (\n -> message addr (Capacity <| floor n)) { defaultSlider | max <- 1000, value <- toFloat capacity}
+                ]
+        , flow right
+                [ show <| show <| "p: " ++ (toString <| alDist.dom)
+                , slider (\n -> message addr (AlleleDist { dom=n, rec=(1 - n)})) { defaultSlider | max <- 1, value <- alDist.dom, step <- 0.01 }
+                ]
+        , show <| "q: " ++ (toString <| alDist.rec)
+        , show <| "p^2: " ++ (toString <| genDist.homdom)
+        , show <| "2pq: " ++ (toString <| genDist.hetero)
+        , show <| "q^2: " ++ (toString <| genDist.homrec)
         ]

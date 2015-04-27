@@ -13,5 +13,6 @@
         "elm-lang/core": "2.0.0 <= v < 3.0.0",
         "evancz/elm-markdown": "1.1.4 <= v < 2.0.0"
     },
+    "native-modules": true,
     "elm-version": "0.1.5 <= v <= 0.1.5"
 }
